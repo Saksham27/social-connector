@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SocialConnector.styles.css" asp-append-version="true" />
-    // Check login status on page load
+  <script>  
 window.fbAsyncInit = function() {
     FB.init({
         appId: '359737446942540',
         cookie: true,
         xfbml: true,
-        version: 'v19.0' // Replace with the desired API version
+        version: 'v19.0' 
     });
 
     FB.getLoginStatus(function(response) {
@@ -21,27 +21,17 @@ window.fbAsyncInit = function() {
     });
 };
 
-// Function to handle login status change
+
 function statusChangeCallback(response) {
     if (response.status === 'connected') {
-        // User is logged into Facebook and your app
-        // Redirect them to the logged-in experience of your app or perform other actions
         console.log('User is logged in with Facebook');
-        // Example: window.location.href = '/loggedin';
     } else if (response.status === 'not_authorized') {
-        // User is logged into Facebook but not your app
-        // Prompt them to log into your app using FB.login() or show the Login Button
-        console.log('User is logged into Facebook but not your app');
-        // Example: showLoginButton();
-    } else {
-        // User is not logged into Facebook
-        // Prompt them to log into Facebook or show the Login Button
+        console.log('User is logged into Facebook but not your app'); 
+    } else {      
         console.log('User is not logged into Facebook');
-        // Example: showLoginButton();
     }
 }
 
-// Load the Facebook SDK asynchronously
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -49,6 +39,7 @@ function statusChangeCallback(response) {
     js.src = "https://connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+ </script> 
 </head>
 <body>
     <header>
